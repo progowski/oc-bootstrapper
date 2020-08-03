@@ -150,7 +150,7 @@ class InstallCommand extends Command
                 'persist-git-directory',
                 null,
                 InputOption::VALUE_NONE,
-                'Specify whether or not to delete .git directories'
+                'Specify whether to persist .git directories'
             );
     }
 
