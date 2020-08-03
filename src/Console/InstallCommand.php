@@ -110,10 +110,10 @@ class InstallCommand extends Command
         $this->composer->setOutput($output);
     }
 
-    public function setWithGitDirectory(bool $withGitDirectory)
+    public function setPersistGitDirectory(bool $persistGitDirectory)
     {
-        $this->pluginManager->setWithGitDirectory($withGitDirectory);
-        $this->themeManager->setWithGitDirectory($withGitDirectory);
+        $this->pluginManager->setWithGitDirectory($persistGitDirectory);
+        $this->themeManager->setWithGitDirectory($persistGitDirectory);
     }
 
     /**
@@ -147,7 +147,7 @@ class InstallCommand extends Command
                 'Specify from where to fetch template files (git remote)',
                 ''
             )->addOption(
-                'with-git-directory',
+                'persist-git-directory',
                 null,
                 InputOption::VALUE_NONE,
                 'Specify whether or not to delete .git directories'
@@ -174,7 +174,7 @@ class InstallCommand extends Command
         }
 
         $this->setOutput($output);
-        $this->setWithGitDirectory($input->getOption('with-git-directory'));
+        $this->setPersistGitDirectory($input->getOption('persist-git-directory'));
 
         $this->force = $input->getOption('force');
 

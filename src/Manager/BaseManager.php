@@ -32,7 +32,7 @@ class BaseManager
     /**
      * @var bool
      */
-    protected $withGitDirectory = false;
+    protected $persistGitDirectory = false;
 
     public function __construct()
     {
@@ -55,13 +55,13 @@ class BaseManager
     /**
      * Set if remove .git directories or not
      */
-    public function setWithGitDirectory(bool $withGitDirectory = false)
+    public function setPersistGitDirectory(bool $persistGitDirectory = false)
     {
-        $this->withGitDirectory = $withGitDirectory;
+        $this->persistGitDirectory = $persistGitDirectory;
     }
 
-    public function isWithGitDirectory(): bool
+    public function getPersistGitDirectory(): bool
     {
-        return $this->withGitDirectory;
+        return $this->persistGitDirectory;
     }
 }

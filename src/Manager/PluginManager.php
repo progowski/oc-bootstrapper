@@ -140,7 +140,7 @@ class PluginManager extends BaseManager
             throw new RuntimeException('Error while cloning plugin repo: ' . $e->getMessage());
         }
 
-        if(!$this->isWithGitDirectory()) {
+        if(!$this->getPersistGitDirectory()) {
             $this->removeGitRepo($this->getDirPath($pluginDeclaration));
         }
     }
