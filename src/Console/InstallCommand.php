@@ -110,6 +110,12 @@ class InstallCommand extends Command
         $this->composer->setOutput($output);
     }
 
+    public function setPersistGitDirectory(bool $persistGitDirectory)
+    {
+        $this->pluginManager->setWithGitDirectory($persistGitDirectory);
+        $this->themeManager->setWithGitDirectory($persistGitDirectory);
+    }
+
     /**
      * Configure the command options.
      *
@@ -140,6 +146,11 @@ class InstallCommand extends Command
                 InputOption::VALUE_OPTIONAL,
                 'Specify from where to fetch template files (git remote)',
                 ''
+            )->addOption(
+                'persist-git-directory',
+                null,
+                InputOption::VALUE_NONE,
+                'Specify whether to persist .git directories'
             );
     }
 
@@ -163,6 +174,7 @@ class InstallCommand extends Command
         }
 
         $this->setOutput($output);
+        $this->setPersistGitDirectory($input->getOption('persist-git-directory'));
 
         $this->force = $input->getOption('force');
 

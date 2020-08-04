@@ -166,6 +166,12 @@ Use the `--help` flag to see all available options.
 october install --help 
 ```
 
+Use the `--persist-git-directory` flag to persist .git directory in plugins and themes. 
+
+```
+october install --persist-git-directory
+```
+
 #### Install additional plugins
 
 If at any point in time you need to install additional plugins, simply add them to your `october.yaml` and re-run 
